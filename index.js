@@ -1,6 +1,5 @@
 let bodyParser = require('body-parser');
 let mong = require('mongoose');
-let dbconnect = require("./config/dbmongo");
 let ex = require('express');
 let app = ex();
 //route
