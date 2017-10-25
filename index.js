@@ -1,6 +1,5 @@
 let bodyParser = require('body-parser');
 let mong = require('mongoose');
-let dbconnect = require("./config/dbmongo");
 let ex = require('express');
 let app = ex();
 //route
@@ -12,19 +11,31 @@ app.use('/', function (req, res, next) {
     next();
 })
 
-let surattugasRoute = require('./surattugas/surattugasRoute.js');
-app.use('/api',surattugasRoute);
+let datasewaRoute = require('./datasewa/datasewaRoute.js');
+app.use('/api',datasewaRoute);
 
-let tipepegawaiRoute = require('./tipepegawai/tipepegawaiRoute.js');
-app.use('/api',tipepegawaiRoute);
+let dendaRoute = require('./denda/dendaRoute.js');
+app.use('/api',dendaRoute);
 
 let pegawaiRoute = require('./pegawai/pegawaiRoute.js');
 app.use('/api',pegawaiRoute);
 
-let surattugasrinciRoute = require('./surattugasrinci/surattugasrinciRoute.js');
-app.use('/api',surattugasrinciRoute);
+let kategoriRoute = require('./kategori/kategoriRoute.js');
+app.use('/api',kategoriRoute);
 
-mong.connect('mongodb://ramagiox:mautauaja@ds113775.mlab.com:13775/dbpelatihan');
+let pembayaranRoute = require('./pembayaran/pembayaranRoute.js');
+app.use('/api',pembayaranRoute);
+
+let penyewaRoute = require('./penyewa/penyewaRoute.js');
+app.use('/api',penyewaRoute);
+
+let akunRoute = require('./akun/akunRoute.js');
+app.use('/api',akunRoute);
+
+let barangRoute = require('./barang/barangRoute.js');
+app.use('/api',barangRoute);
+
+mong.connect('mongodb://admin:admin@ds231205.mlab.com:31205/dbpenyewaan');
 
 
 //mong.connect('mongodb://localhost:27017/DBPelatihan');
